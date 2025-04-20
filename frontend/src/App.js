@@ -5,11 +5,10 @@ function App() {
   const [playlistUrl, setPlaylistUrl] = useState(null);
   const [status, setStatus]         = useState(null);   // 'success' | 'error' | null
   const [errorMsg, setErrorMsg]     = useState('');
+  const BACKEND = "https://spotify-api-cnkq.onrender.com"
 
   const handleLogin = () => {
-    // kick off backend flow
-    setStatus(null);
-    window.location.href = 'http://localhost:5000/login';
+    window.location.href = `${BACKEND}/login`;
   };
 
   useEffect(() => {
