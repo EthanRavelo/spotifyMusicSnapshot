@@ -27,8 +27,7 @@ def login():
         "response_type": "code",
         "redirect_uri": REDIRECT_URI,
         "scope": SCOPE,
-        "state": state,
-        "show_dialog": "true"
+        "state": state
     }
     auth_url = "https://accounts.spotify.com/authorize?" + urlencode(params)
     return redirect(auth_url)
