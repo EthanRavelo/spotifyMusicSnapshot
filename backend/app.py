@@ -83,11 +83,14 @@ def callback():
     # create the playlist
     from datetime import datetime
     today = datetime.now().strftime("%B %d, %Y")
+    payload = {"name": today, "description": desc, "public": False}
+    print("▶️ Creating playlist with payload:", payload)
     playlist_resp = requests.post(
         f"https://api.spotify.com/v1/users/{user_id}/playlists",
         headers=headers,
-        json={"name": today, "description": desc, "public": False}
+        json=payload
     )
+    print("▶️ Spotify replied:", playlist_resp.status_code, playlist_resp.json())
     if playlist_resp.status_code != 201:
         return redirect(f"{FRONTEND_URI}/?error=playlist_creation_failed")
 
